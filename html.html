@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Caeser's Virtual Web Interface</h1>
+        <p>Caeser's Stats:</p>
+        <p>Energy:100</p>
+        <p>Happiness: 100</p>
+        <img src="C:\Users\varuv\Downloads\caeser.jpg" alt="Caeser">
+
+        <form method="post" action="Result.txt">
+            <label for="command">Enter a command:</label>
+            <input type="text" id="command" name="command" required>
+            
+            <div id="additional-inputs">
+                <!-- Additional inputs based on the command -->
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p>Woof!</p>
+    </div>
+
+    <script>
+        // Script to show/hide additional inputs based on the selected command
+        document.getElementById('command').addEventListener('input', function () {
+            var command = this.value;
+            var additionalInputs = document.getElementById('additional-inputs');
+            
+            // Clear previous inputs
+            additionalInputs.innerHTML = "";
+
+            // Add additional inputs based on the command
+            if (command === "feed") {
+                var foodInput = document.createElement('input');
+                foodInput.type = 'text';
+                foodInput.name = 'food';
+                foodInput.placeholder = 'Enter the food';
+                additionalInputs.appendChild(foodInput);
+            } else if (command === "run") {
+                var holdInput = document.createElement('input');
+                holdInput.type = 'text';
+                holdInput.name = 'hold';
+                holdInput.placeholder = 'Enter the thing to hold';
+                additionalInputs.appendChild(holdInput);
+            } else if (command === "sit") {
+                var rolloverInput = document.createElement('input');
+                rolloverInput.type = 'text';
+                rolloverInput.name = 'rollover';
+                rolloverInput.placeholder = 'Enter the activity to be done';
+                additionalInputs.appendChild(rolloverInput);
+            }
+        });
+    </script>
+</body>
+</html>
+
